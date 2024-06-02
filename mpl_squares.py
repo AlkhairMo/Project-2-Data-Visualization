@@ -15,4 +15,4 @@ ax.set_ylabel("Square of Value",  fontsize=14)
 # Set size of tick labels.
 ax.tick_params(axis='both', labelsize=14)
 
-plt.show()
+plt.savefig("squares_plot.png", bbox_inches='tight')

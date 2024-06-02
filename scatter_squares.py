@@ -5,7 +5,7 @@ y_values = [x**2 for x in x_values]
 
 plt.style.use('ggplot')
 fig, ax = plt.subplots()
-ax.scatter(x_values, y_values, s=10)
+ax.scatter(x_values, y_values, c=y_values, cmap=plt.cm.Greens, s=10)
 
 # Set chart title and label axes.
 ax.set_title("Square Numbers", fontsize=24)
@@ -18,4 +18,4 @@ ax.tick_params(axis='both', which='major', labelsize=14)
 # Set the range for each axis.
 ax.axis([0, 1_100, 0, 1_100_000])
 
-plt.show()
+plt.savefig("squares_scatter_plot.png")
