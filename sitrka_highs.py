@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 import matplotlib.pyplot as plt
 
@@ -7,17 +8,23 @@ with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
 
-    # Get high temperatures from this file.
-    highs = [int(row[4]) for row in reader]
+    # Get date and high temperatures from this file.
+    dates, highs = [], []
+    for row in reader:
+        date = datetime.strptime(row[2], '%Y-%m-%d')
+        high = int(row[4])
+        dates.append(date)
+        highs.append(high)
 
 # Plot the high temperatures.
 plt.style.use('Solarize_Light2')
 fig, ax = plt.subplots()
-ax.plot(highs, c='red')
+ax.plot(dates, highs, c='red')
 
 # Format plot.
 plt.title("Daily high temperatures, July 2021", fontsize=18)
 plt.xlabel('', fontsize=13)
+fig.autofmt_xdate()
 plt.ylabel("Temperature (F)", fontsize=13)
 plt.tick_params(axis='both', which='major', labelsize=13)
 
