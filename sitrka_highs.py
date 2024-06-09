@@ -8,21 +8,24 @@ with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
 
-    # Get date and high temperatures from this file.
-    dates, highs = [], []
+    # Get date, and high and low temperatures from this file.
+    dates, highs, lows = [], [], []
     for row in reader:
         date = datetime.strptime(row[2], '%Y-%m-%d')
         high = int(row[4])
+        low = int(row[5])
         dates.append(date)
         highs.append(high)
+        lows.append(low)
 
-# Plot the high temperatures.
+# Plot the high and low temperatures.
 plt.style.use('Solarize_Light2')
 fig, ax = plt.subplots()
-ax.plot(dates, highs, c='red', linewidth=1)
+ax.plot(dates, highs, c='red', linewidth=0.8)
+ax.plot(dates, lows, c='blue', linewidth=0.8)
 
 # Format plot.
-plt.title("Daily high temperatures - 2021", fontsize=18)
+plt.title("Daily high and low temperatures - 2021", fontsize=16)
 plt.xlabel('', fontsize=13)
 fig.autofmt_xdate()
 plt.ylabel("Temperature (F)", fontsize=13)
