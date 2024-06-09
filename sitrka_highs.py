@@ -3,7 +3,7 @@ from datetime import datetime
 
 import matplotlib.pyplot as plt
 
-filename = 'data/sitka_weather_07-2021_simple.csv'
+filename = 'data/sitka_weather_2021_simple.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
@@ -19,10 +19,10 @@ with open(filename) as f:
 # Plot the high temperatures.
 plt.style.use('Solarize_Light2')
 fig, ax = plt.subplots()
-ax.plot(dates, highs, c='red')
+ax.plot(dates, highs, c='red', linewidth=1)
 
 # Format plot.
-plt.title("Daily high temperatures, July 2021", fontsize=18)
+plt.title("Daily high temperatures - 2021", fontsize=18)
 plt.xlabel('', fontsize=13)
 fig.autofmt_xdate()
 plt.ylabel("Temperature (F)", fontsize=13)
