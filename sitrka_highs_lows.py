@@ -21,8 +21,9 @@ with open(filename) as f:
 # Plot the high and low temperatures.
 plt.style.use('Solarize_Light2')
 fig, ax = plt.subplots()
-ax.plot(dates, highs, c='red', linewidth=0.8)
-ax.plot(dates, lows, c='blue', linewidth=0.8)
+ax.plot(dates, highs, c='red', linewidth=0.8, alpha=0.5)
+ax.plot(dates, lows, c='blue', linewidth=0.8, alpha=0.5)
+plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
 
 # Format plot.
 plt.title("Daily high and low temperatures - 2021", fontsize=16)
