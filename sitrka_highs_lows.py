@@ -31,5 +31,6 @@ plt.xlabel('', fontsize=13)
 fig.autofmt_xdate()
 plt.ylabel("Temperature (F)", fontsize=13)
 plt.tick_params(axis='both', which='major', labelsize=13)
+plt.ylim(5, 135)
 
 plt.show()
