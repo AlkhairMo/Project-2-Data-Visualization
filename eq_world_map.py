@@ -4,8 +4,8 @@ from plotly.graph_objs import Scattergeo, Layout
 from plotly import offline
 
 # Explore the structure of the data.
-filename = 'data/readable_eq_data.geojson'
-with open(filename) as f:
+filename = 'data/eq_data_30_day_m1.geojson'
+with open(filename, 'r', encoding='utf-8') as f:
     all_eq_data = json.load(f)
 
 all_eq_dicts = all_eq_data['features']
