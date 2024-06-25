@@ -3,7 +3,8 @@ import requests
 from plotly import offline
 
 # Make an API call and store the response.
-url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
+language = 'c++'
+url = f'https://api.github.com/search/repositories?q=language:{language}&sort=stars'
 headers = {'Accept': 'application/vnd.github.v3+json'}
 r = requests.get(url, headers=headers)
 print(f"Status code: {r.status_code}")
@@ -37,7 +38,7 @@ data = [{
     'opacity': 0.6,
 }]
 my_layout = {
-    'title': 'Most-Starred Python Projects on GitHub',
+    'title': f'Most-Starred {language.title()} Projects on GitHub',
     'titlefont': {'size': 28},
     'xaxis': {'title': 'Repository',
               'titlefont': {'size': 24},
@@ -47,4 +48,4 @@ my_layout = {
               'tickfont': {'size': 14}},
 }
 fig = {'data': data, 'layout': my_layout}
-offline.plot(fig, filename='python_repos.html')
+offline.plot(fig, filename=f'{language}_repos.html')
