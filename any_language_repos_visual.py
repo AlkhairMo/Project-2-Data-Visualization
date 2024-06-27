@@ -3,7 +3,7 @@ import requests
 from plotly import offline
 
 # Make an API call and store the response.
-language = 'c++'
+language = input('Enter the language you want: ')
 url = f'https://api.github.com/search/repositories?q=language:{language}&sort=stars'
 headers = {'Accept': 'application/vnd.github.v3+json'}
 r = requests.get(url, headers=headers)
